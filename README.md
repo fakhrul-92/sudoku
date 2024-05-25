@@ -86,7 +86,3 @@ Development Notes
 
 4. **Theming**:
    - Light and dark themes are available and can be toggled using the switch button in the top bar.
-
-Credits
--------
-Developed by: [Your Name]
