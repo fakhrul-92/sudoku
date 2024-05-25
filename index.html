@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="sudoku.css">
+    <link rel="stylesheet" href="score.css">
+    <link rel="stylesheet" href="instructions.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav id="top-nav">
+        <div class="nav-left">
+            <h1>Sudoku Game</h1>
+        </div>
+        <div class="nav-right">
+        </div>
+    </nav>
+    <div id="container">
+
+        <div id="instruction-corner">
+            <h2>Sudoku Instructions</h2>
+        </div>
+        <div id="sudoku-corner">
+            <h1>Enjoy Sudoku</h1>
+            <hr>
+            <div id="game-controls">
+                <label for="category-selector">Choose difficulty level:</label>
+                <select id="category-selector"></select><br>
+                <label for="puzzle-selector">Choose puzzle number:</label>
+                <select id="puzzle-selector"></select><br><br>
+                <div id="game-message"></div>
+                <button id="start-reset-button">
+                    <i id="start-reset-icon" class="fas fa-play"></i>
+                    <span>Start</span>
+                </button>
+                <button id="pause-resume-button" disabled>
+                    <i id="pause-resume-icon" class="fas fa-pause"></i>
+                    <span>Pause</span>
+                </button>
+                <p></p>
+                <div id="timer-container">
+                    <div id="time-left">00:00</div>
+                    <div id="timer-bar-container">
+                        <div id="timer-bar"></div>
+                    </div>
+                    <div id="time-right">03:00</div>
+                </div>
+            </div>
+            <div id="digits"></div>
+            <div id="board"></div>
+            <div id="errors">Errors: 0</div>
+            <div id="score-card">Score: 0</div>
+        </div>
+
+        <div id="update-corner">
+            <h1>.</h1>
+            <h1>Test sudoku knowledge</h1>
+            <h1>.</h1>
+            <div class="quiz-container">
+                <div id="quiz"></div>
+                <button id="submit">Submit</button>
+                <div id="results"></div>
+            </div>
+            <script src="script.js"></script>
+        </div>
+    </div>
+    <script src="puzzleData.js"></script>
+    <script src="score.js"></script>
+    <script src="timer.js"></script>
+    <script src="sudoku.js"></script>
+    <script src="instructions.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* Ensure body takes up full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #5c135b;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+hr{
+    height: 2px;
+    width: 100%;
+    border: o.5px dashed rgb(0, 0, 0);
+    background-color: #000;
+}
+/* Top navigation bar styles */
+#top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: rgb(216, 48, 211);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-left h1 {
+    margin: 0;
+}
+/* Adjust the container to have some top margin to avoid overlapping with the fixed nav bar */
+#container {
+    margin-top: 60px; /* Adjust this value based on the height of your navigation bar */
+    display: flex;
+    height: calc(100% - 60px); /* Adjust the height to fill the remaining space */
+    width: 100%;
+}
+
+/* Left section (25%) */
+#update-corner {
+    flex: 1;
+    max-width: 25%;
+    background-color: #f3f1f8;
+    padding: 20px;
+    border-right: 2px solid #ccc;
+    overflow: auto;
+}
+
+/* Middle section (50%) */
+#sudoku-corner {
+    flex: 2;
+    max-width: 50%;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    overflow: auto;
+    position: relative; /* Needed for positioning popup */
+}
+
+#sudoku-corner h1 {
+    align-self: center; /* Center the h1 element */
+    margin-top: 20px;
+}
+
+/* Right section (25%) */
+#instruction-corner {
+    flex: 1;
+    max-width: 25%;
+    background-color: #f3f1f8;
+    padding: 20px;
+    border-left: 2px solid #ccc;
+    overflow: auto;
+}
+
+#instruction-corner h2 {
+    margin-top: 0;
+}
+
+#instruction-corner ol {
+    padding-left: 20px;
+}
+
+#game-controls {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dropdown-container {
+    margin-bottom: 10px;
+}
+
+.dropdown-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#start-button {
+    margin-bottom: 5px;
+}
+
+#timer-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#time-left, #time-right {
+    width: 50px;
+    text-align: center;
+}
+
+#timer-bar-container {
+    flex: 1;
+    height: 20px;
+    width: 500px;
+    background: red;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px; /* Optional: for rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+#timer-bar {
+    height: 100%;
+    background-color: green;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: width 1s linear;
+}
+
+.blinking {
+    animation: blinking 1s infinite;
+}
+
+@keyframes blinking {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.blinking-border {
+    border: 2px solid rgb(238, 9, 28);
+    animation: blinking-border 1s infinite;
+}
+
+@keyframes blinking-border {
+    0% { border-color: red; }
+    50% { border-color: yellow; }
+    100% { border-color: red; }
+}
+
+#digits {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.number {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #000; margin: 5px;
+    cursor: pointer; user-select: none;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.number-selected {
+    background-color: #000;
+    color: #fff;
+    font-size: large;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    gap: 2px;
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.2px solid #000; /* Thin border for all tiles */
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+}
+
+.tile-start {
+    background-color: #e2caca;
+}
+
+.subgrid-light {background-color: #6c695bc3; /* Light color for 9x9 square*/}
+.subgrid-dark {background-color: #d3d3d3; /* Different color for 9x9 square*/}
+.highlight { background-color: #ffff99; /* Highlight color for selected number*/}
+
+#errors {
+    margin: 20px;
+    font-size: 28px;
+    color: #fff;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.popup {
+    position: absolute;
+    top: 25%;  left: 25%;
+    width: 50%; height: 50%;
+    background-color: rgba(0, 0, 0, 0.8); color: #e20d0d;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; font-size: 50px; z-index: 1000; text-align: center; padding: 20px; box-sizing: border-box;
+}
+
+.popup button {
+    margin-top: 10px; padding: 10px 20px; font-size: 18px;  cursor: pointer;
+}
